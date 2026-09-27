@@ -1,0 +1,261 @@
+.opening-screen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background: #100b09;
+    z-index: 9999;
+    overflow: hidden;
+    opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
+}
+
+
+
+.opening-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.opening-video.video-started {
+    opacity: 1;
+}
+
+
+
+
+.opening-content {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20;
+
+    color: white;
+}
+
+.opening-subtitle {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 6px;
+
+    margin-bottom: 28px;
+
+    opacity: 0.9;
+}
+
+.opening-button {
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    color: white;
+
+    padding: 15px 40px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 4px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.opening-button:hover {
+    background: white;
+    color: #1a1210;
+}
+
+
+
+
+.reveal-content {
+    position: absolute;
+    inset: 0;
+
+    z-index: 30;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+
+
+.top-flowers {
+    position: absolute;
+
+    top: -5px;
+    left: 0;
+
+    width: 100%;
+    height: 30vh;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+
+    opacity: 0;
+
+    transform: translateY(-35px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.top-flowers img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center top;
+    mix-blend-mode: multiply;
+
+    filter: saturate(0.95);
+}
+
+.pink-glow {
+    position: absolute;
+
+    left: 50%;
+    top: 48%;
+
+    width: 650px;
+    height: 400px;
+
+    transform: translate(-50%, -50%) scale(0.6);
+
+    background:
+        radial-gradient(ellipse,
+            rgba(255, 155, 190, 0.65) 0%,
+            rgba(240, 110, 155, 0.35) 30%,
+            rgba(210, 70, 120, 0.15) 55%,
+            transparent 75%);
+
+    filter: blur(35px);
+
+    opacity: 0;
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.5s ease;
+}
+
+
+.reveal-names {
+    position: absolute;
+
+    left: 50%;
+    top: 53%;
+
+    transform: translate(-50%, 40px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-names h1 {
+    margin: 0;
+
+    font-family: "Parisienne", cursive !important;
+
+    font-size: clamp(70px, 9vw, 135px);
+
+    font-weight: 400;
+
+    color: #fff8f3;
+
+    text-shadow:
+        0 0 12px rgba(255, 170, 195, 0.5),
+        0 0 35px rgba(255, 120, 170, 0.35);
+}
+
+.reveal-names span {
+    font-family: "Parisienne", cursive !important;
+
+    font-size: clamp(45px, 5vw, 75px);
+
+    color: #fff8f3;
+}
+
+/
+
+.reveal-active .top-flowers {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-active .pink-glow {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.reveal-active .reveal-names {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+
+.opening-closing {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+@media (max-width: 600px) {
+
+    .top-flowers {
+        height: 23vh;
+    }
+
+    .reveal-names {
+        gap: 15px;
+    }
+
+    .reveal-names h1 {
+        font-size: 58px;
+    }
+
+    .reveal-names span {
+        font-size: 38px;
+    }
+
+    .pink-glow {
+        width: 400px;
+        height: 300px;
+    }
+}
